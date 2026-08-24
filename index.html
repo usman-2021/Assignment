@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta
+        name="description"
+        content="A responsive product advertisement website with search, filters, product posting, and seller contact."
+    >
+
+    <title>Product Advertisement Website</title>
+
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body id="top">
+
+    <!-- ================= HEADER ================= -->
+    <header>
+        <div class="page-container">
+            <h1>Product Advertisement Website</h1>
+            <p>Find products, filter results, and post your own advertisement.</p>
+        </div>
+    </header>
+
+    <!-- ================= NAVIGATION ================= -->
+    <nav aria-label="Main navigation">
+        <ul>
+            <li><a href="#top">Home</a></li>
+            <li><a href="#products">Products</a></li>
+            <li><a href="#postAd">Post Ad</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <main class="page-container">
+
+        <!-- ================= FILTER SECTION ================= -->
+        <section class="filter-section" aria-labelledby="searchHeading">
+            <h2 id="searchHeading">Search Products</h2>
+
+            <div class="filter-grid">
+                <div class="form-field">
+                    <label for="search">Search Product Name</label>
+                    <input
+                        type="search"
+                        id="search"
+                        name="search"
+                        placeholder="e.g. laptop"
+                        autocomplete="off"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="category">Category</label>
+                    <select id="category" name="category">
+                        <option value="All">All Categories</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Watch">Watch</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="price">Maximum Price</label>
+                    <select id="price" name="price">
+                        <option value="All">All Prices</option>
+                        <option value="500">Rs. 500 and under</option>
+                        <option value="1000">Rs. 1,000 and under</option>
+                        <option value="5000">Rs. 5,000 and under</option>
+                        <option value="100000">Rs. 100,000 and under</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PRODUCTS ================= -->
+        <section id="products" aria-labelledby="productsHeading">
+            <div class="section-heading">
+                <h2 id="productsHeading">Available Products</h2>
+                <p id="resultCount" aria-live="polite"></p>
+            </div>
+
+            <div class="product-container" id="productContainer">
+                <!-- Products are rendered by JavaScript. -->
+            </div>
+        </section>
+
+        <!-- ================= POST PRODUCT FORM ================= -->
+        <section id="postAd" aria-labelledby="postAdHeading">
+            <h2 id="postAdHeading">Post Product Advertisement</h2>
+
+            <form id="productForm">
+                <div class="form-field">
+                    <label for="productName">Product Name</label>
+                    <input
+                        type="text"
+                        id="productName"
+                        name="productName"
+                        placeholder="Product Name"
+                        required
+                        maxlength="80"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="productCategory">Category</label>
+                    <select id="productCategory" name="productCategory" required>
+                        <option value="">Select a category</option>
+                        <option value="Laptop">Laptop</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Watch">Watch</option>
+                        <option value="Accessories">Accessories</option>
+                    </select>
+                </div>
+
+                <div class="form-field">
+                    <label for="productPrice">Price (PKR)</label>
+                    <input
+                        type="number"
+                        id="productPrice"
+                        name="productPrice"
+                        placeholder="Price"
+                        min="0"
+                        step="1"
+                        required
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="productDescription">Product Description</label>
+                    <textarea
+                        id="productDescription"
+                        name="productDescription"
+                        placeholder="Describe the product"
+                        rows="4"
+                        maxlength="500"
+                        required
+                    ></textarea>
+                </div>
+
+                <div class="form-field">
+                    <label for="productImage">Image URL (optional)</label>
+                    <input
+                        type="url"
+                        id="productImage"
+                        name="productImage"
+                        placeholder="https://example.com/image.jpg"
+                    >
+                </div>
+
+                <div class="form-field">
+                    <label for="contactNumber">Contact Number</label>
+                    <input
+                        type="tel"
+                        id="contactNumber"
+                        name="contactNumber"
+                        placeholder="+92-300-1234567"
+                        required
+                        maxlength="25"
+                    >
+                </div>
+
+                <button type="submit">Post Product</button>
+                <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
+            </form>
+        </section>
+    </main>
+
+    <!-- ================= CONTACT ================= -->
+    <footer id="contact">
+        <div class="page-container">
+            <h2>Contact Information</h2>
+            <p><strong>Phone:</strong> +92-321-1234567</p>
+            <p><strong>Email:</strong> abc@gmail.com</p>
+            <hr>
+            <p>&copy; 2026 Product Advertisement Website</p>
+        </div>
+    </footer>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>
